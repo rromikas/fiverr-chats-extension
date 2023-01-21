@@ -1,0 +1,22 @@
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        const mo = new MutationObserver(() => {
+            console.log("mutated")
+        })
+        mo.observe(document.getElementById("box") ?? document.createElement("div"), { subtree: true, childList: true })
+        setTimeout(() => {
+            const box = document.createElement("div");
+            box.id === "box";
+            document.body.appendChild(box);
+            setTimeout(() => {
+                box.innerHTML = "Mutating"
+            }, 1000)
+        }, 1000)
+    </script>
+</body>
+
+</html>
